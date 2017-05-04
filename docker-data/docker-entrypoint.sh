@@ -18,7 +18,7 @@ if [ "$1" = 'redis-cluster' ]; then
     sleep 3
 
     IP=`ifconfig | grep "inet addr:17" | cut -f2 -d ":" | cut -f1 -d " "`
-    echo "yes" | ruby /redis/src/redis-trib.rb create --replicas 1 ${IP}:7001 ${IP}:7002 ${IP}:7003
+    echo "yes" | ruby /redis/src/redis-trib.rb create --replicas 0 ${IP}:7001 ${IP}:7002 ${IP}:7003
     tail -f /var/log/supervisor/redis*.log
 else
   exec "$@"
