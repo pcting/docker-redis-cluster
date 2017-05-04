@@ -1,12 +1,13 @@
 version: '2'
 services:
   redis-cluster:
+    network_mode: host
     build:
       context: .
       args:
         redis_version: '3.2.7'
     hostname: server
     ports:
-      - "7001:7001"
-      - "7002:7002"
-      - "7003:7003"
+      - "7001"
+      - "7002"
+      - "7003"
